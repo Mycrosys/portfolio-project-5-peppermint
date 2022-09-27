@@ -1,0 +1,41 @@
+.App {
+    font-family: "Oswald", sans-serif;
+    background-color: #c5dbc2;
+    min-height: 100vh;
+  }
+  
+.Main {
+    padding-top: 100px;
+}
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  a {
+    color: #bec9c9;
+    transition: color ease-in-out 0.3s;
+  }
+  
+  a:hover {
+    color: #00a652;
+    text-decoration: none;
+  }
+  
+  a:hover i {
+    color: #00a652;
+    transition: color ease-in-out 0.3s;
+  }
+  
+  i {
+    color: #bec9c9;
+    font-size: 2rem;
+    padding: 8px;
+    vertical-align: middle;
+  }
+  
+  i:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #00a652;
+  }
