@@ -1,0 +1,41 @@
+.Row {
+    height: calc(100vh - 100px);
+  }
+
+.Input {
+  background: #ffffff;
+  border: 2px solid #00a652;
+  box-sizing: border-box;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  color: #bec9c9;
+  text-align: center;
+  padding: 15px;
+}
+ 
+.Header {
+  font-family: "Merriweather", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #00a652;
+  padding-bottom: 10px;
+}
+  
+.Link {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+  
+.Link span {
+  color: #cc2222;
+}
+  
+.Container {
+  padding: 25px 10px;
+}
