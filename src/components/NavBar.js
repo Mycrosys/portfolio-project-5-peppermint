@@ -10,12 +10,16 @@ import {
 
 import Avatar from "./Avatar";
 import axios from "axios";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 const NavBar = () => {
   // current User
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
+  // custom hook for closing navbar on click (mobile/burger icon)
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
+  
   // Signout function
   const handleSignOut = async () => {
     try {
@@ -89,7 +93,11 @@ const NavBar = () => {
   );
 
   return (
-    <Navbar className={styles.NavBar} expand="md" fixed="top">
+    <Navbar
+      className={styles.NavBar}
+      expand="md"
+      fixed="top"
+      expanded={expanded}> 
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
@@ -97,7 +105,10 @@ const NavBar = () => {
           </Navbar.Brand>
         </NavLink>
         {currentUser && addIssueIcon}
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          ref={ref}
+          onClick={() => setExpanded(!expanded)}/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
             <NavLink exact
