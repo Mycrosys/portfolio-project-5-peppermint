@@ -7,9 +7,13 @@ import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 
 const NavBar = () => {
+  // current User
   const currentUser = useCurrentUser();
 
+  // display Username (authenticated)
   const loggedInIcons = <>{currentUser?.username}</>;
+  
+  // display login / register (not authenticated)
   const loggedOutIcons = (
     <>
       <NavLink
@@ -45,7 +49,7 @@ const NavBar = () => {
             </NavLink>
             
             {currentUser ? loggedInIcons : loggedOutIcons}
-            
+
           </Nav>
         </Navbar.Collapse>
       </Container>
