@@ -3,15 +3,71 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/peplogo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import { 
+  useCurrentUser,
+  useSetCurrentUser
+} from "../contexts/CurrentUserContext";
 
+import Avatar from "./Avatar";
+import axios from "axios";
 
 const NavBar = () => {
   // current User
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
 
-  // display Username (authenticated)
-  const loggedInIcons = <>{currentUser?.username}</>;
+  // Signout function
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // Icon to add an Issue (Create Bug Report)
+  const addIssueIcon = (
+    <NavLink
+      className={styles.NavLink}
+      activeClassName={styles.Active}
+      to="/issues/create">
+      <i className="fas fa-solid fa-bug"></i>Report Issue
+    </NavLink>
+  );
+
+  // display when authenticated
+  // My Issues, Followed, Sign Out and Avatar/Username
+  const loggedInIcons = (
+    <>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/feed">
+        <i class="fas fa-clipboard-list"></i>My Issues
+      </NavLink>
+      
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/followed">
+        <i className="fas fa-walking"></i>Followed
+      </NavLink>
+      
+      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+        <i className="fas fa-sign-out-alt"></i>Sign out
+      </NavLink>
+      
+      <NavLink
+        className={styles.NavLink}
+        to={`/profiles/${currentUser?.profile_id}`}>
+        <Avatar 
+          src={currentUser?.profile_image}
+          text={currentUser?.username}
+          height={40} />
+      </NavLink>
+    </>
+  );
   
   // display login / register (not authenticated)
   const loggedOutIcons = (
@@ -22,6 +78,7 @@ const NavBar = () => {
         to="/signin">
         <i className="fas fa-sign-in-alt"></i>Login
       </NavLink>
+
       <NavLink
         to="/signup"
         className={styles.NavLink}
@@ -35,9 +92,11 @@ const NavBar = () => {
     <Navbar className={styles.NavBar} expand="md" fixed="top">
       <Container>
         <NavLink to="/">
-        <Navbar.Brand>
-          <img src={logo} alt="logo" height="50" />
-        </Navbar.Brand></NavLink>
+          <Navbar.Brand>
+            <img src={logo} alt="logo" height="50" />
+          </Navbar.Brand>
+        </NavLink>
+        {currentUser && addIssueIcon}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">

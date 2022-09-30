@@ -51,11 +51,6 @@ i:hover {
   color: #00a652;
 }
 
-figure {
-  text-align: center;
-  display: inline-block;
-}
-
 /* A nicer Scrollbar */
 *::-webkit-scrollbar {
   width: 5px;
