@@ -5,6 +5,7 @@ import {Route,Switch} from 'react-router-dom';
 import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm.js";
 import SignInForm from "./pages/auth/SignInForm";
+import IssueCreateForm from "./pages/issues/IssueCreateForm";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route exact path="/" render={() => <h1>Home Page</h1>} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
+          <Route exact path="/issues/create" render={() => <IssueCreateForm />} />
           <Route render={() => <p>Invalid URL</p>} />
         </Switch>
       </Container>

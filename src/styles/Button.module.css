@@ -5,11 +5,12 @@
   border-color: transparent;
   padding: 5px 10px;
   min-width: 80px;
+  margin: 0 10px;
 }
   
 .Button:hover {
   border: 2px solid #00a652;
-  padding: 9px 10px;
+  padding: 4px 10px;
 }
   
 .Button:hover:active {
@@ -25,7 +26,7 @@
 }
   
 .Wide {
-  padding: 10px 50px;
+  margin: 0;
   width: 100%;
 }
   
