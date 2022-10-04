@@ -6,7 +6,7 @@ import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm.js";
 import SignInForm from "./pages/auth/SignInForm";
 import IssueCreateForm from "./pages/issues/IssueCreateForm";
-
+import IssuePage from "./pages/issues/IssuePage";
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/issues/create" render={() => <IssueCreateForm />} />
+          <Route exact path="/issues/:id" render={() => <IssuePage />} />
           <Route render={() => <p>Invalid URL</p>} />
         </Switch>
       </Container>

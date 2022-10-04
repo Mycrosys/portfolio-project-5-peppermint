@@ -1,0 +1,18 @@
+.Issue {
+  background-color: #ffffff;
+  border: 3px solid #00a652;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+  
+.overdue {
+  font-family: "Oswald", sans-serif;
+  color: #cc2222;
+  font-size: 2rem;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+
