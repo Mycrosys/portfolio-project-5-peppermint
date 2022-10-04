@@ -47,7 +47,7 @@ const NavBar = () => {
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to="/feed">
+        to="/myissues">
         <i class="fas fa-clipboard-list"></i>My Issues
       </NavLink>
       
