@@ -14,6 +14,8 @@ import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 import NoResults from "../../assets/no-results.png";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 function IssuesPage({ message, filter = "" }) {
   const [issues, setIssues] = useState({ results: [] });
@@ -58,20 +60,30 @@ function IssuesPage({ message, filter = "" }) {
             onChange={(event) => setQuery(event.target.value)}
             type="text"
             className="mr-sm-2"
-            placeholder="Search posts"
+            placeholder="Search issues"
           />
         </Form>
 
         {hasLoaded ? (
           <>
             {issues.results.length ? (
-              issues.results.map((issue) => (
-                <Issue key={issue.id} {...issue} setIssues={setIssues} />
-              ))
+              
+              <InfiniteScroll
+                children={issues.results.map((issue) => (
+                  <Issue key={issue.id} {...issue} setIssues={setIssues} />
+                ))}
+                dataLength={issues.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!issues.next}
+                next={() => fetchMoreData(issues, setIssues)}
+              />
+
             ) : (
+              
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
               </Container>
+
             )}
           </>
         ) : (
