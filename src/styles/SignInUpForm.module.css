@@ -12,7 +12,13 @@
   text-align: center;
   padding: 15px;
 }
- 
+
+.Input:focus {
+  border-color: #00a652;
+  outline: none;
+  box-shadow: none;
+}
+
 .Header {
   font-family: "Merriweather", sans-serif;
   font-style: normal;
