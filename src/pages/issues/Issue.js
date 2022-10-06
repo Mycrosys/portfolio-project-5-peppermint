@@ -2,8 +2,11 @@ import React from "react";
 import styles from "../../styles/Issue.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import { MoreDropdown } from "../../components/MoreDropdown";
+import { axiosRes } from "../../api/axiosDefaults";
+
 
 const Issue = (props) => {
   const {
@@ -26,6 +29,21 @@ const Issue = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/issues/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/issues/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
 
   return (
     <Card className={styles.Issue}>
@@ -40,7 +58,13 @@ const Issue = (props) => {
           
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && issuePage && "owner"}
+            
+            {is_owner && issuePage && (
+              <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}/>
+            )}
+
           </div>
 
         </Media>
