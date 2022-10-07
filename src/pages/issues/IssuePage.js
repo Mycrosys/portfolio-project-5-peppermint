@@ -8,20 +8,26 @@ import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Issue from "./Issue";
+import Journal from "../journals/Journal";
 
+import InfiniteScroll from "react-infinite-scroll-component";
+import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
 
 function IssuePage() {
   const { id } = useParams();
   const [issue, setIssue] = useState({ results: [] });
+  const [journal, setJournals] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: issue }] = await Promise.all([
+        const [{ data: issue }, { data: journal }] = await Promise.all([
           axiosReq.get(`/issues/${id}`),
+          axiosReq.get(`/journal/?issue=${id}`)
         ]);
         setIssue({ results: [issue] });
-        console.log(issue);
+        setJournals(journal);
       } catch (err) {
         console.log(err);
       }
@@ -35,7 +41,23 @@ function IssuePage() {
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Recent Issue Updates for mobile</p>
         <Issue {...issue.results[0]} setIssues={setIssue} issuePage />
-        <Container className={appStyles.Content}>Journal</Container>
+        <Container className={appStyles.Content}>
+          <span>This issue has {journal.results.length} Journal entries.</span>
+          <InfiniteScroll
+              children={journal.results.map((journal) => (
+                <Journal
+                  key={journal.id}
+                  {...journal}
+                  setIssue={setIssue}
+                  setJournals={setJournals}
+                />
+              ))}
+              dataLength={journal.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!journal.next}
+              next={() => fetchMoreData(journal, setJournals)}
+            />
+        </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         Recent Issue Updates for desktop
