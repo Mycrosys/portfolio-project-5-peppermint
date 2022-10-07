@@ -71,7 +71,7 @@ const Issue = (props) => {
       </Card.Body>
 
       <Card.Body>
-        {!overdue && <Card.Text className={styles.overdue}>Overdue!</Card.Text>}
+        {overdue && <Card.Text className={styles.overdue}>Overdue!</Card.Text>}
         {title && <Card.Title>{title}</Card.Title>}
         Summary: {description && <Card.Text>{description}</Card.Text>}
       </Card.Body>
