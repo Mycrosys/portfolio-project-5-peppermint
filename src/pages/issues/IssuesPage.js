@@ -16,6 +16,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
+import RecentlyUpdatedIssues from "./RecentlyUpdatedIssues";
 
 function IssuesPage({ message, filter = "" }) {
   const [issues, setIssues] = useState({ results: [] });
@@ -48,7 +49,7 @@ function IssuesPage({ message, filter = "" }) {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Recent Issue Updates for mobile</p>
+        <RecentlyUpdatedIssues mobile />
         
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         
@@ -93,7 +94,7 @@ function IssuesPage({ message, filter = "" }) {
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <p>Recent Issue Updates for desktop</p>
+        <RecentlyUpdatedIssues />
       </Col>
     </Row>
   );

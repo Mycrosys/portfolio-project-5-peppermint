@@ -13,6 +13,7 @@ import Journal from "../journals/Journal";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
+import RecentlyUpdatedIssues from "./RecentlyUpdatedIssues";
 
 function IssuePage() {
   const { id } = useParams();
@@ -39,7 +40,7 @@ function IssuePage() {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Recent Issue Updates for mobile</p>
+        <RecentlyUpdatedIssues mobile />
         <Issue {...issue.results[0]} setIssues={setIssue} issuePage />
         <Container className={appStyles.Content}>
           <span>This issue has {journal.results.length} Journal entries.</span>
@@ -60,7 +61,7 @@ function IssuePage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        Recent Issue Updates for desktop
+        <RecentlyUpdatedIssues />
       </Col>
     </Row>
   );

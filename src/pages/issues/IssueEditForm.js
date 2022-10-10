@@ -14,6 +14,8 @@ import btnStyles from "../../styles/Button.module.css";
 import { Image } from "react-bootstrap";
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import moment from "moment";
+
 
 function IssueEditForm() {
   const [errors, setErrors] = useState({});
@@ -48,6 +50,11 @@ function IssueEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/issues/${id}/`);
+        
+        // Converting Time into a Format usable by the form
+        // with moments.js
+        data.due_date = moment(data.due_date).format('YYYY-MM-DDThh:mm');
+
         const {
           title,
           description,
@@ -58,7 +65,7 @@ function IssueEditForm() {
           state,
           overdue,
           is_owner } = data;
-
+        
         is_owner ? setIssueData({
           title,
           description,
