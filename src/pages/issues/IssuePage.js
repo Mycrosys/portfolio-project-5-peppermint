@@ -41,24 +41,35 @@ function IssuePage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <RecentlyUpdatedIssues mobile />
-        <Issue {...issue.results[0]} setIssues={setIssue} issuePage />
-        <Container className={appStyles.Content}>
-          <span>This issue has {journal.results.length} Journal entries.</span>
-          <InfiniteScroll
-              children={journal.results.map((journal) => (
-                <Journal
-                  key={journal.id}
-                  {...journal}
-                  setIssue={setIssue}
-                  setJournals={setJournals}
+        {issue.results.length ? (
+          <>
+            <Issue {...issue.results[0]} setIssues={setIssue} issuePage />
+        
+            <Container className={appStyles.Content}>
+              <span>This issue has {journal.results.length} Journal entries.</span>
+              <InfiniteScroll
+                  children={journal.results.map((journal) => (
+                    <Journal
+                      key={journal.id}
+                      {...journal}
+                      setIssue={setIssue}
+                      setJournals={setJournals}
+                    />
+                  ))}
+                  dataLength={journal.results.length}
+                  loader={<Asset spinner />}
+                  hasMore={!!journal.next}
+                  next={() => fetchMoreData(journal, setJournals)}
                 />
-              ))}
-              dataLength={journal.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!journal.next}
-              next={() => fetchMoreData(journal, setJournals)}
-            />
-        </Container>
+            </Container>
+          </>
+        ) : 
+          <>
+            <Container className={appStyles.Content}>
+              <span>This issue has been deleted.</span>
+            </Container>
+          </>
+        }
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <RecentlyUpdatedIssues />
