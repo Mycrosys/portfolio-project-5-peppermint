@@ -10,6 +10,7 @@ import IssuePage from "./pages/issues/IssuePage";
 import IssuesPage from "./pages/issues/IssuesPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import IssueEditForm from "./pages/issues/IssueEditForm";
+import ProfilePage from "./pages/profiles/ProfilePage";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -56,6 +57,7 @@ function App() {
           <Route exact path="/issues/create" render={() => <IssueCreateForm />} />
           <Route exact path="/issues/:id" render={() => <IssuePage />} />
           <Route exact path="/issues/:id/edit" render={() => <IssueEditForm />} />
+          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route render={() => <p>Invalid URL</p>} />
         </Switch>
       </Container>

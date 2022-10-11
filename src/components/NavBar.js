@@ -48,7 +48,7 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/myissues">
-        <i className="fas fa-clipboard-list"></i>My Issues
+        <i className="fas fa-clipboard-list"></i>My&nbsp;Issues
       </NavLink>
       
       <NavLink
