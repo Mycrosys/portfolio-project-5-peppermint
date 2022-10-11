@@ -12,6 +12,8 @@ import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
+// This is used to create and display the Navbar on top of the Page
+
 const NavBar = () => {
   // current User
   const currentUser = useCurrentUser();

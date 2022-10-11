@@ -1,6 +1,9 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 
+// This is used to display a Pen Icon with a dropdown
+// menu for user interaction. A neat way to hide further
+// actions while also keeping functionality.
 
 const Anchor = React.forwardRef(({ onClick }, ref) => (
   <i
@@ -13,6 +16,8 @@ const Anchor = React.forwardRef(({ onClick }, ref) => (
     }}
   />
 ));
+
+// Dropdown for Issues (Edit and Delete)
 
 export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   return (

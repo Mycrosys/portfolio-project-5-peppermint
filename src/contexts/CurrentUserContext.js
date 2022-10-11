@@ -3,6 +3,10 @@ import axios from "axios";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useHistory } from "react-router";
 
+// Provides the Project with the Current logged in user
+// and handles token refreshes if necessary and
+// redirects to signin if a token refresh fails
+
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
 
@@ -46,6 +50,8 @@ export const CurrentUserProvider = ({ children }) => {
         return Promise.reject(err);
       }
     );
+
+    // Handling of Interceptors for token refresh
 
     axiosRes.interceptors.response.use(
       (response) => response,

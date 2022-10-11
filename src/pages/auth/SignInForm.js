@@ -51,6 +51,12 @@ function SignInForm() {
     });
   };
 
+  // returns the form with 2 fields (username, pw)
+  // for users to input and login and provides a link
+  // to register instead below it
+
+  // also displays error messages if something goes wrong
+  
   return (
     <Row className={styles.Row}>
       <Col className="my-auto py-2 p-md-2" md={{ span: 8, offset: 2 }}>
@@ -67,7 +73,7 @@ function SignInForm() {
                 value={username}
                 onChange={handleChange}
               />
-            </Form.Group>
+            </Form.Group> 
             
             {errors.username?.map((message, idx) => (
               <Alert key={idx} variant="warning">
