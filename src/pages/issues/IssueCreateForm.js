@@ -18,8 +18,12 @@ import { Image } from "react-bootstrap";
 
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function IssueCreateForm() {
+  // Redirect if logged out
+  useRedirect('loggedOut');
+  
   const [errors, setErrors] = useState({});
 
   const [issueData, setIssueData] = useState({
