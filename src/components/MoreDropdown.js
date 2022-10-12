@@ -1,4 +1,6 @@
 import React from "react";
+import { useHistory } from "react-router";
+import styles from "../styles/MoreDropdown.module.css";
 import Dropdown from "react-bootstrap/Dropdown";
 
 // This is used to display a Pen Icon with a dropdown
@@ -44,3 +46,37 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
     </Dropdown>
   );
 };
+
+// Dropdown for Profiles (Edit and Delete)
+
+export function ProfileEditDropdown({ id }) {
+  const history = useHistory();
+  return (
+    <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
+      <Dropdown.Toggle as={Anchor} />
+      
+      <Dropdown.Menu>
+        
+        <Dropdown.Item
+          onClick={() => history.push(`/profiles/${id}/edit`)}
+          aria-label="edit-profile">
+          Edit Profile
+        </Dropdown.Item>
+        
+        <Dropdown.Item
+          onClick={() => history.push(`/profiles/${id}/edit/username`)}
+          aria-label="edit-username">
+          Change Username
+        </Dropdown.Item>
+        
+        <Dropdown.Item
+          onClick={() => history.push(`/profiles/${id}/edit/password`)}
+          aria-label="edit-password">
+          Change Password
+        </Dropdown.Item>
+
+      </Dropdown.Menu>
+    
+    </Dropdown>
+  );
+}

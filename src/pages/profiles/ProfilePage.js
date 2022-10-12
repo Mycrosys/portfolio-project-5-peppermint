@@ -15,6 +15,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
 
 import { Image } from "react-bootstrap";
+import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 import Issue from "../issues/Issue";
@@ -53,27 +54,39 @@ function ProfilePage() {
 
   const mainProfile = (
     <>
+      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
+          
           <Image
             className={styles.ProfileImage}
             roundedCircle
-            src={profile?.image} />
+            src={profile?.image}
+          />
+
         </Col>
+        
         <Col lg={6}>
+        
           <h3 className="m-2">{profile?.owner}</h3>
+        
           <Row className="justify-content-center no-gutters">
+        
             <Col xs={6} className="my-2">
               <div>{profile?.issues_count}</div>
               <div>Issues Created</div>
             </Col>
+        
             <Col xs={6} className="my-2">
               <div>{profile?.following_count}</div>
               <div>Following Issues</div>
             </Col>
+        
           </Row>
+        
         </Col>
-        {profile?.description && <Col className="p-3">{profile.description}</Col>}
+        
+        {profile?.description && <Col lg={12} className="p-3">{profile.description}</Col>}
       </Row>
     </>
   );
@@ -83,6 +96,7 @@ function ProfilePage() {
       <hr />
       <p className="text-center">{profile?.owner}'s bug reports</p>
       <hr />
+
       {profileIssues.results.length ? (
         <InfiniteScroll
           children={profileIssues.results.map((issue) => (
@@ -106,6 +120,7 @@ function ProfilePage() {
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <RecentlyUpdatedIssues mobile />
+      
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
@@ -116,10 +131,13 @@ function ProfilePage() {
             <Asset spinner />
           )}
         </Container>
+      
       </Col>
+      
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <RecentlyUpdatedIssues />
       </Col>
+
     </Row>
   );
 }

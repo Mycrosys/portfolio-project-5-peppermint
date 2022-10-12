@@ -72,7 +72,9 @@ const Issue = (props) => {
 
       <Card.Body>
         {overdue && <Card.Text className={styles.overdue}>Overdue!</Card.Text>}
-        {title && <Card.Title>{title}</Card.Title>}
+        {title && <Card.Title>
+          <Link to={`/issues/${id}`}>{title}</Link>
+        </Card.Title>}
         Summary: {description && <Card.Text>{description}</Card.Text>}
       </Card.Body>
       

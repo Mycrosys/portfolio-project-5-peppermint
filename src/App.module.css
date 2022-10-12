@@ -21,6 +21,23 @@
   object-fit: contain;
 }
 
+.Input {
+  background: #ffffff;
+  border: 2px solid #00a652;
+  box-sizing: border-box;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  color: #bec9c9;
+  text-align: center;
+  padding: 15px;
+}
+  
+.Input:focus {
+  border-color: #00a652;
+  outline: none;
+  box-shadow: none;
+}
+
 * {
   box-sizing: border-box;
 }
