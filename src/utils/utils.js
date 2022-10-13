@@ -20,3 +20,37 @@ export const fetchMoreData = async (resource, setResource) => {
     }));
   } catch (err) {}
 };
+
+// Deconstructed for future possible use for stats
+
+export const followHelper = (issue, clickedIssue, following_id) => {
+  return issue.id === clickedIssue.id
+    ? // Clicked Issue, add following id
+      {
+        ...issue,
+        following_id,
+      }
+    : issue.is_owner
+    ? // Issue owned by owner
+      {
+        ...issue,
+      }
+    : issue;
+};
+
+// Deconstructed for future possible use for stats
+
+export const unfollowHelper = (issue, clickedIssue) => {
+  return issue.id === clickedIssue.id
+    ? // Issue clicked on, remove following id
+      {
+        ...issue,
+        following_id: null,
+      }
+    : issue.is_owner
+    ? // Issue owned by owner, same as above with followhelper
+      {
+        ...issue,
+      }
+    : issue;
+};
