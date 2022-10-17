@@ -1,3 +1,10 @@
 .Break {
-  word-break: break-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 150px;
+}
+
+.Spacer {
+  margin-left: 15px;
 }

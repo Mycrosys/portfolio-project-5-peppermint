@@ -17,13 +17,17 @@ import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import RecentlyUpdatedIssues from "./RecentlyUpdatedIssues";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 
 function IssuesPage({ message, filter = "" }) {
-  const [issues, setIssues] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [issues, setIssues] = useState({ results: [] });
   const { pathname } = useLocation();
 
   const [query, setQuery] = useState("");
+
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     const fetchIssues = async () => {
@@ -44,7 +48,7 @@ function IssuesPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
 
   return (
     <Row className="h-100">

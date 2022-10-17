@@ -7,12 +7,36 @@
   font-size: 1.2rem;
 }
   
-.overdue {
+.Overdue {
   font-family: "Oswald", sans-serif;
   color: #cc2222;
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 0;
-  margin-bottom: 10px;
 }
 
+.Buttonspacer {
+  width: 120px;
+}
 
+.Title {
+  font-family: "Merriweather", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
+
+.Cardimage {
+  padding: 10px;
+}
+
+.Informationspacer {
+  padding: 15px;
+}
+
+.Journalspacer {
+  margin-top: 15px;
+}

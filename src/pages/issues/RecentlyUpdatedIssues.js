@@ -3,7 +3,9 @@ import { Container } from "react-bootstrap";
 import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
 import { useIssueData } from "../../contexts/IssueDataContext";
+import styles from "../../styles/RecentlyUpdatedIssues.module.css";
 import IssueShort from "./IssueShort";
+
 
 const RecentlyUpdatedIssues = ({mobile}) => {
   const { updatedIssues } = useIssueData();
@@ -16,7 +18,7 @@ const RecentlyUpdatedIssues = ({mobile}) => {
 
         {updatedIssues.results.length ? (
           <>
-            <p>Recently updated Issues</p>
+            <p className={styles.Header}>Recently updated Issues</p>
             <hr />
             {mobile ? (
               <div className="d-flex justify-content-around">

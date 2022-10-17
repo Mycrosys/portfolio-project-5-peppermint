@@ -24,10 +24,11 @@ export const IssueDataProvider = ({ children }) => {
         const { data } = await axiosRes.post("/followers/", {
         issue_following: clickedIssue.id,
       });
-
+      
       setIssueData((prevState) => ({
         ...prevState,
         pageIssue: {
+          ...prevState.pageIssue,
           results: prevState.pageIssue.results.map((issue) =>
             followHelper(issue, clickedIssue, data.id)
           ),

@@ -4,10 +4,11 @@ import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Button } from "react-bootstrap";
 import { useSetIssueData } from "../../contexts/IssueDataContext";
+import { Link } from "react-router-dom";
 
 const IssueShort = (props) => {
   const { issue, mobile } = props;
-  const { following_id, owner, title } = issue;
+  const { following_id, id, owner, title, updated_at, journals_count } = issue;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
@@ -17,11 +18,14 @@ const IssueShort = (props) => {
   return (
     <div
       className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}>
-            
-      <div className={`mx-2 ${styles.Break}`}>
-        {title}
-      </div>
+
+      <Link className={`mx-2 ${styles.Break}`} to={`/issues/${id}`}>
+        <span>({journals_count})</span>&nbsp;{title}
+        <br />
+        <span className={styles.Spacer}>{updated_at}</span>
+      </Link>
       
+
       <div className={`text-right ${!mobile && "ml-auto"}`}>
         {!mobile &&
           currentUser &&

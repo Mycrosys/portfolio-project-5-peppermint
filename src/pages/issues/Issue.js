@@ -6,9 +6,14 @@ import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { axiosRes } from "../../api/axiosDefaults";
+import { Button } from "react-bootstrap";
+import btnStyles from "../../styles/Button.module.css";
+import { useSetIssueData } from "../../contexts/IssueDataContext";
 
 
 const Issue = (props) => {
+  const issue = props;
+
   const {
     id,
     owner,
@@ -22,14 +27,17 @@ const Issue = (props) => {
     priority,
     category,
     state,
+    issuePage,
     overdue,
     updated_at,
-    issuePage,
-  } = props;
+    following_id,
+  } = issue;
 
+     
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
+  const { handleFollow, handleUnfollow } = useSetIssueData();
 
   const handleEdit = () => {
     history.push(`/issues/${id}/edit`);
@@ -58,42 +66,61 @@ const Issue = (props) => {
           
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            
-            {is_owner && issuePage && (
-              <MoreDropdown
-                handleEdit={handleEdit}
-                handleDelete={handleDelete}/>
-            )}
+          </div>
+          
+          <div className={styles.Buttonspacer}>
+            {currentUser &&
+              !is_owner &&
+              (following_id ? (
+                <Button
+                  className={`${btnStyles.Button} ${btnStyles.Green}`}
+                  onClick={() => handleUnfollow(issue)}>
+                  Unfollow
+                </Button>
+              ) : (
+                
+                <Button
+                  className={`${btnStyles.Button} ${btnStyles.Green}`}
+                  onClick={() => handleFollow(issue)}>
+                  Follow
+                </Button>
+
+              ))}
 
           </div>
-
         </Media>
       </Card.Body>
 
       <Card.Body>
-        {overdue && <Card.Text className={styles.overdue}>Overdue!</Card.Text>}
         {title && <Card.Title>
-          <Link to={`/issues/${id}`}>{title}</Link>
+          <Link to={`/issues/${id}`} className={styles.Title}>{title}</Link>
+          {is_owner && issuePage && (
+              <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}/>
+            )}
         </Card.Title>}
-        Summary: {description && <Card.Text>{description}</Card.Text>}
+
+        {overdue && <div className={styles.Overdue}>Issue is Overdue!</div>}
+        {due_date && <div>Due Date: {due_date}</div>}
+        <hr />
+        Description: {description && <Card.Text>{description}</Card.Text>}
       </Card.Body>
       
-      <Link to={`/issues/${id}`}>
-        <Card.Img src={image} alt={title} />
-      </Link>
+      <Card.Img className={styles.Cardimage} src={image} alt={title} />
       
       <Card.Body>
-        {due_date && <Card.Text>Due Date: {due_date}</Card.Text>}
-        {priority && <Card.Text>Priority: {priority}</Card.Text>}
-        {category && <Card.Text>Category: {category}</Card.Text>}
-        {state && <Card.Text>State: {state}</Card.Text>}
-
-        <div className={styles.IssueBar}>
-          <Link to={`/issues/${id}`}>
-            <i className="fa fa-book" />
-          </Link>
-          {journals_count}
-        </div>
+        {priority && <span className={styles.Informationspacer}>
+          Priority: {priority}</span>}
+        {category && <span className={styles.Informationspacer}>
+          Category: {category}</span>}
+        {state && <span className={styles.Informationspacer}>
+          State: {state}</span>}
+        {!issuePage && (
+          <div className={styles.Journalspacer}>
+            <i className="fa fa-book" />{journals_count}
+          </div>    
+        )}
       </Card.Body>
     </Card>
   );

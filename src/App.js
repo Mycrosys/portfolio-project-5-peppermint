@@ -50,7 +50,7 @@ function App() {
             render={() => (
               <IssuesPage
                 message="No results. Follow an Issue and try again."
-                filter={`issues__owner__profile=${profile_id}&`}
+                filter={`issue_following__owner__profile=${profile_id}&`}
               />
             )}
           />
