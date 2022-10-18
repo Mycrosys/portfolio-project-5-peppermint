@@ -17,6 +17,7 @@ import {
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+// Handles the editing of the Username
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState({});
@@ -35,6 +36,7 @@ const UsernameForm = () => {
     }
   }, [currentUser, history, id]);
 
+  // Handling the Submit of the Data and changing it in the API
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -52,6 +54,7 @@ const UsernameForm = () => {
     }
   };
 
+  // Rendering a simple form for new username Input
   return (
     <Row>
       <Col className="py-2 mx-auto text-center" md={6}>

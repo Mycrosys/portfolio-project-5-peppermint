@@ -21,11 +21,13 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 
 function IssueCreateForm() {
+  
   // Redirect if logged out
   useRedirect('loggedOut');
   
   const [errors, setErrors] = useState({});
 
+  // All the variables that can be edited by the User
   const [issueData, setIssueData] = useState({
     title: "",
     description: "",
@@ -48,6 +50,7 @@ function IssueCreateForm() {
     overdue,
     } = issueData;
 
+  // handling the change of any text fields/select fields
   const handleChange = (event) => {
     setIssueData({
       ...issueData,
@@ -58,6 +61,7 @@ function IssueCreateForm() {
   const imageInput = useRef(null);
   const history = useHistory();
 
+  // handling the change of the Image
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -68,6 +72,7 @@ function IssueCreateForm() {
     }
   };
 
+  // Handling the Submission of the Data and changing it in the API
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -92,6 +97,7 @@ function IssueCreateForm() {
     }
   };
 
+  // Text Input Fields
   const textFields = (
     <div className="text-center">
       <Form.Group>
@@ -128,6 +134,7 @@ function IssueCreateForm() {
     </div>
   );
 
+  // Select Fields
   const selectFields = (
     <div className="text-center">
       <Form.Group>
@@ -234,12 +241,17 @@ function IssueCreateForm() {
     </div>
   );
 
+  // Rendering the image and putting both text fields on top of it
+  // and the select fields on the right side. Mobile will drop the
+  // select fields below the Image selection.
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
         <Col className="py-2 p-0 p-md-2" md={8} lg={8}>
           <Container
-            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}>
+            className={`${appStyles.Content}
+                        ${styles.Container}
+                        d-flex flex-column justify-content-center`}>
             {textFields}
             
             <Form.Group className="text-center">

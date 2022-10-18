@@ -22,6 +22,7 @@ import Issue from "../issues/Issue";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 
+// Displays the Profile Page
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const { id } = useParams();
@@ -52,6 +53,8 @@ function ProfilePage() {
     fetchData();
   }, [id, setProfileData]);
 
+  // Main Profile Data - Profile Picture, Name, Count of Issues created,
+  // Count of Issues following, Bio
   const mainProfile = (
     <>
       {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
@@ -91,6 +94,7 @@ function ProfilePage() {
     </>
   );
 
+  // Display of all Posts created by the Owner of the Profile
   const mainProfilePosts = (
     <>
       <hr />

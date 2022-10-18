@@ -2,7 +2,7 @@ import React from "react";
 import { Spinner } from "react-bootstrap";
 import styles from "../styles/Asset.module.css";
 
-// This is used to display Assets (or a spinner)
+// This displays Assets (or a spinner when loading)
 // throughout the project
 
 const Asset = ({ spinner, src, message }) => {

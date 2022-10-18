@@ -6,7 +6,8 @@ import { useIssueData } from "../../contexts/IssueDataContext";
 import styles from "../../styles/RecentlyUpdatedIssues.module.css";
 import IssueShort from "./IssueShort";
 
-
+// Handles the Recently Updated Issue display with follow/unfollow
+// Buttons on the right side of the Page
 const RecentlyUpdatedIssues = ({mobile}) => {
   const { updatedIssues } = useIssueData();
   

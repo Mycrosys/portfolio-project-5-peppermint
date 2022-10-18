@@ -6,6 +6,10 @@ import Button from "react-bootstrap/Button";
 import { useSetIssueData } from "../../contexts/IssueDataContext";
 import { Link } from "react-router-dom";
 
+// This Component is used for creating small-sized Issue
+// displays with a follow/unfollow button in recently
+// updated Issues Side-display
+
 const IssueShort = (props) => {
   const { issue, mobile } = props;
   const { following_id, id, owner, title, updated_at, journals_count } = issue;
@@ -15,6 +19,9 @@ const IssueShort = (props) => {
 
   const { handleFollow, handleUnfollow } = useSetIssueData();
 
+  // Don't render follow/unfollow Buttons on mobile and limit
+  // to a display of 2 Issues on top of the search bar and main
+  // content display
   return (
     <div
       className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}>
@@ -25,7 +32,6 @@ const IssueShort = (props) => {
         <span className={styles.Spacer}>{updated_at}</span>
       </Link>
       
-
       <div className={`text-right ${!mobile && "ml-auto"}`}>
         {!mobile &&
           currentUser &&

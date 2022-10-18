@@ -15,6 +15,7 @@ import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import RecentlyUpdatedIssues from "./RecentlyUpdatedIssues";
 
+// Handles the Detail view of a Single Issue
 function IssuePage() {
   const { id } = useParams();
   const [issue, setIssue] = useState({ results: [] });
@@ -23,12 +24,19 @@ function IssuePage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: issue }, { data: journal }] = await Promise.all([
-          axiosReq.get(`/issues/${id}`),
-          axiosReq.get(`/journal/?issue=${id}`)
-        ]);
+        const { data: issue } = await axiosReq.get(`/issues/${id}`);
+        
+        // If an issue has been deleted, do not try to grab journals, otherwise
+        // get all journals for this issue. This is solely for someone entering
+        // the link in the address bar, because no link on the page will be 
+        // leading to a deleted issue, ever.
+
+        if(issue!=null) {
+          const { data: journal } = await axiosReq.get(`/journal/?issue=${id}`);
+          setJournals(journal);
+        }
         setIssue({ results: [issue] });
-        setJournals(journal);
+
       } catch (err) {
         
       }

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// This is used to connect to the QA-API I created and fetch,
+// This connects to the QA-API I created and fetch,
 // create and/or update Data
 
 axios.defaults.baseURL = 'https://peppermint-qa-api.herokuapp.com/';

@@ -24,12 +24,14 @@
 .Button:focus {
   background-color: #00a652;
 }
-  
+
+/* Wide Button mainly used for sign up / sign in */
 .Wide {
   margin: 0;
   width: 100%;
 }
-  
+
+/* Generic Green Button used throughout the Page */
 .Green {
   background-color: #00a652;
   color: #ffffff;
@@ -40,6 +42,7 @@
   color: #00a652;
 }
 
+/* Light Green Button used for Unfollow */
 .Lightgreen {
   background-color: #c5dbc2;
   color: #00a652;

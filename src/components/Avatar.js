@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/Avatar.module.css";
 
-// This is used to display the Avatar (profile pictures)
+// This displays the Avatar (profile pictures)
 // where necessary
 
 const Avatar = ({ src, height = 50, text }) => {

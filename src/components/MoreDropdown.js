@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 import styles from "../styles/MoreDropdown.module.css";
 import Dropdown from "react-bootstrap/Dropdown";
 
-// This is used to display a Pen Icon with a dropdown
+// This displays a Pen Icon with a dropdown
 // menu for user interaction. A neat way to hide further
 // actions while also keeping functionality.
 

@@ -2,6 +2,8 @@ import React from "react";
 import Media from "react-bootstrap/Media";
 import styles from "../../styles/Journal.module.css";
 
+// Handles the display of automatically (by the API)
+// created Journals
 const Journal = (props) => {
   const { updated_at, description } = props;
 

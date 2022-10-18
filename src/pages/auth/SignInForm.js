@@ -19,7 +19,6 @@ import { setTokenTimestamp } from "../../utils/utils";
 
 
 function SignInForm() {
-  // current User
   const setCurrentUser = useSetCurrentUser();
   
   // Redirect if logged in
@@ -36,7 +35,7 @@ function SignInForm() {
 
   const history = useHistory();
   
-  // handling the submit of the form
+  // handling the submission of the form
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -49,7 +48,7 @@ function SignInForm() {
     }
   };
 
-  // handling the change of any textfields
+  // handling the change of any text fields
   const handleChange = (event) => {
     setSignInData({
       ...signInData,
@@ -58,7 +57,7 @@ function SignInForm() {
   };
 
   // returns the form with 2 fields (username, pw)
-  // for users to input and login and provides a link
+  // for users to input and log in and provides a link
   // to register instead below it
 
   // also displays error messages if something goes wrong

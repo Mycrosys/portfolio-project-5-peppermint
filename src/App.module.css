@@ -3,11 +3,16 @@
     background-color: #c5dbc2;
     min-height: 100vh;
   }
-  
+
+/* Slides the Page below the Always on top Navbar.
+The Gap to the Navbar is higher on low res and Desktop
+Displays to not conflict with an in-between Tablet 
+Resolution. */
 .Main {
     padding-top: 115px;
 }
 
+/* Content Background and Border */
 .Content {
   background-color: #ffffff;
   padding: 10px;
@@ -15,12 +20,14 @@
   border: 3px solid #00a652;
 }
 
+/* Make Image fit and not overflow */
 .Image {
   max-height: 40vh;
   max-width: 100%;
   object-fit: contain;
 }
 
+/* Input Fields */
 .Input {
   background: #ffffff;
   border: 2px solid #00a652;
@@ -41,7 +48,8 @@
 * {
   box-sizing: border-box;
 }
-  
+
+/* Links */
 a {
   color: #bec9c9;
   transition: color ease-in-out 0.3s;
@@ -61,6 +69,7 @@ input[type="file"] {
   display: none;
 }
 
+/* Fontawesome */
 i {
   color: #bec9c9;
   font-size: 2rem;

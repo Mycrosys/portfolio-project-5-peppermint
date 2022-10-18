@@ -19,7 +19,8 @@ import { fetchMoreData } from "../../utils/utils";
 import RecentlyUpdatedIssues from "./RecentlyUpdatedIssues";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-
+// Handles display of many Issues (home, my issues, followed)
+// below each other
 function IssuesPage({ message, filter = "" }) {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [issues, setIssues] = useState({ results: [] });

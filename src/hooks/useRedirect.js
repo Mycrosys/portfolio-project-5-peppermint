@@ -2,6 +2,9 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useHistory } from "react-router";
 
+// Handles redirects to Home Page if the User is on a page he
+// or she is not supposed to be
+
 export const useRedirect = (userAuthStatus) => {
   const history = useHistory();
 

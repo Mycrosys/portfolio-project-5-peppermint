@@ -16,7 +16,7 @@ import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
 
-// This is used to create and display the Navbar on top of the Page
+// This creates and displays the Navbar on top of the Page
 
 const NavBar = () => {
   // current User
@@ -48,7 +48,7 @@ const NavBar = () => {
   );
 
   // display when authenticated
-  // My Issues, Followed, Sign Out and Avatar/Username
+  // My Issues, Followed, Sign Out, and Avatar/Username
   const loggedInIcons = (
     <>
       <NavLink

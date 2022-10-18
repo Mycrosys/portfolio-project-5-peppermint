@@ -1,3 +1,4 @@
+/* Makes sure the Dropdown Layer is always on top */
 .Absolute {
   position: absolute;
   right: 0;

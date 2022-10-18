@@ -20,6 +20,7 @@ import moment from "moment";
 function IssueEditForm() {
   const [errors, setErrors] = useState({});
 
+  // All the variables that can be edited by the User
   const [issueData, setIssueData] = useState({
     title: "",
     description: "",
@@ -85,6 +86,7 @@ function IssueEditForm() {
     handleMount();
   }, [history, id]);
 
+  // handling the change of any textfields/selectfields
   const handleChange = (event) => {
     setIssueData({
       ...issueData,
@@ -92,6 +94,7 @@ function IssueEditForm() {
     });
   };
 
+  // handling the change of the Image
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -102,6 +105,7 @@ function IssueEditForm() {
     }
   };
 
+  // Handling the Submit of the Data and changing it in the API
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -130,6 +134,7 @@ function IssueEditForm() {
     }
   };
 
+  // Text Input Fields
   const textFields = (
     <div className="text-center">
       <Form.Group>
@@ -166,6 +171,7 @@ function IssueEditForm() {
     </div>
   );
 
+  // Select Fields
   const selectFields = (
     <div className="text-center">
       <Form.Group>
@@ -272,6 +278,9 @@ function IssueEditForm() {
     </div>
   );
 
+  // Rendering the image and putting in both text fields on top of it
+  // and the selectfields on the right side. Mobile will drop the
+  // selectfields below the Image selection.
   return (
     <Form onSubmit={handleSubmit}>
       <Row>

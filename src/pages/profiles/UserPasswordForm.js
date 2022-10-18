@@ -14,6 +14,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+// Handles the change of the Password of a User
 const UserPasswordForm = () => {
   const history = useHistory();
   const { id } = useParams();
@@ -42,6 +43,7 @@ const UserPasswordForm = () => {
     }
   }, [currentUser, history, id]);
 
+  // Handling the Submit of the Data and changing it in the API
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -53,6 +55,7 @@ const UserPasswordForm = () => {
     }
   };
 
+  // Rendering a simple form for new password and confirming password
   return (
     <Row>
       <Col className="py-2 mx-auto text-center" md={6}>

@@ -32,7 +32,7 @@ const SignUpForm = () => {
 
   const history = useHistory();
 
-  // handling the change of any textfields
+  // handling the change of any text fields
   const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
@@ -40,7 +40,7 @@ const SignUpForm = () => {
     });
   };
 
-  // handling the submit of the form
+  // handling the submission of the form
   const handleSubmit = async (event) => {
     event.preventDefault(); // preventing default submit
     try {
@@ -53,7 +53,7 @@ const SignUpForm = () => {
 
   // returns the form with 3 fields (username, pw, pw confirm)
   // for users to input and create a new user and provides
-  // a link to login instead below it
+  // a link to log in instead below it
 
   // also displays error messages if something goes wrong
 

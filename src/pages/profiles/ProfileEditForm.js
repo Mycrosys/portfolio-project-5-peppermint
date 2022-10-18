@@ -18,7 +18,8 @@ import {
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
-
+// Handles the Editing of Base Profile Information like
+// Bio and Image
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -26,6 +27,7 @@ const ProfileEditForm = () => {
   const history = useHistory();
   const imageFile = useRef();
 
+  // All the variables that can be edited by the User
   const [profileData, setProfileData] = useState({
     name: "",
     description: "",
@@ -54,6 +56,7 @@ const ProfileEditForm = () => {
     handleMount();
   }, [currentUser, history, id]);
 
+  // handling the change of any fields
   const handleChange = (event) => {
     setProfileData({
       ...profileData,
@@ -61,6 +64,7 @@ const ProfileEditForm = () => {
     });
   };
 
+  // Handling the Submission of the Data and changing it in the API
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -84,6 +88,7 @@ const ProfileEditForm = () => {
     }
   };
 
+  // Text Input Fields
   const textFields = (
     <>
       <Form.Group>
@@ -120,6 +125,7 @@ const ProfileEditForm = () => {
     </>
   );
 
+  // Rendering the Form
   return (
     <Form onSubmit={handleSubmit}>
       <Row>

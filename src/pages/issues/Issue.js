@@ -13,7 +13,7 @@ import Media from "react-bootstrap/Media";
 import btnStyles from "../../styles/Button.module.css";
 import { useSetIssueData } from "../../contexts/IssueDataContext";
 
-
+// Displays a Single Issue
 const Issue = (props) => {
   const issue = props;
 
@@ -34,18 +34,20 @@ const Issue = (props) => {
     overdue,
     updated_at,
     following_id,
+    created_at,
   } = issue;
 
-     
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
   const { handleFollow, handleUnfollow } = useSetIssueData();
 
+  // Handle editing the Issue
   const handleEdit = () => {
     history.push(`/issues/${id}/edit`);
   };
 
+  // Handle deleting the Issue
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/issues/${id}/`);
@@ -68,7 +70,7 @@ const Issue = (props) => {
           </Link>
           
           <div className="d-flex align-items-center">
-            <span>{updated_at}</span>
+            <span>{created_at}</span>
           </div>
           
           <div className={styles.Buttonspacer}>

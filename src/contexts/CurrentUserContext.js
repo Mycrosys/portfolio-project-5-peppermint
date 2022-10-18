@@ -6,7 +6,7 @@ import { removeTokenTimestamp, shouldRefreshToken } from "../utils/utils";
 
 // Provides the Project with the Current logged in user
 // and handles token refreshes if necessary and
-// redirects to signin if a token refresh fails
+// redirects to sign in if a token refresh fails
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -55,7 +55,7 @@ export const CurrentUserProvider = ({ children }) => {
       }
     );
 
-    // Handling of Interceptors for token refresh
+    // Handling of Interceptors for a token refresh
 
     axiosRes.interceptors.response.use(
       (response) => response,

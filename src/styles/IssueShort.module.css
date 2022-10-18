@@ -1,3 +1,5 @@
+/* Limits the display of the Issue Title
+and abbreviates it with "..." */
 .Break {
   white-space: nowrap;
   overflow: hidden;
@@ -9,6 +11,8 @@
   margin-left: 15px;
 }
 
+/* Limits the width for the mobile view of recently
+updated issues so it does not break the page */
 .Mobilebreak {
   width: 115px;
 }

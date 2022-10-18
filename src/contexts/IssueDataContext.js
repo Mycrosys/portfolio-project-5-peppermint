@@ -19,12 +19,14 @@ export const IssueDataProvider = ({ children }) => {
 
   const currentUser = useCurrentUser();
 
+  // Handles the Following of an Issue
   const handleFollow = async (clickedIssue) => {
     try {
         const { data } = await axiosRes.post("/followers/", {
         issue_following: clickedIssue.id,
       });
 
+      // Creates a refresh for the React component
       setIssueData((prevState) => ({
         ...prevState,
         pageIssue: {
@@ -45,10 +47,12 @@ export const IssueDataProvider = ({ children }) => {
     }
   };
 
+  // Handles the Unfollowing of an Issue
   const handleUnfollow = async (clickedIssue) => {
     try {
       await axiosRes.delete(`/followers/${clickedIssue.following_id}/`);
 
+      // Creates a refresh for the React component
       setIssueData((prevState) => ({
         ...prevState,
         pageIssue: {
