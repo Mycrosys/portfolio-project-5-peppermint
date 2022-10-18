@@ -1,12 +1,15 @@
 import React from "react";
 import styles from "../../styles/Issue.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { axiosRes } from "../../api/axiosDefaults";
-import { Button } from "react-bootstrap";
+
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Media from "react-bootstrap/Media";
+
 import btnStyles from "../../styles/Button.module.css";
 import { useSetIssueData } from "../../contexts/IssueDataContext";
 

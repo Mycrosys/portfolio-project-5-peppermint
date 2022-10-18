@@ -1,5 +1,5 @@
 import React from "react";
-import { Media } from "react-bootstrap";
+import Media from "react-bootstrap/Media";
 import styles from "../../styles/Journal.module.css";
 
 const Journal = (props) => {
