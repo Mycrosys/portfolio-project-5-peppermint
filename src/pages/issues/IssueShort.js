@@ -19,7 +19,7 @@ const IssueShort = (props) => {
     <div
       className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}>
 
-      <Link className={`mx-2 ${styles.Break}`} to={`/issues/${id}`}>
+      <Link className={`mx-2 ${styles.Break} ${mobile && styles.Mobilebreak}`} to={`/issues/${id}`}>
         <span>({journals_count})</span>&nbsp;{title}
         <br />
         <span className={styles.Spacer}>{updated_at}</span>

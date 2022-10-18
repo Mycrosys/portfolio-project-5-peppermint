@@ -22,7 +22,7 @@ const RecentlyUpdatedIssues = ({mobile}) => {
             <hr />
             {mobile ? (
               <div className="d-flex justify-content-around">
-                {updatedIssues.results.slice(0, 3).map((issue) => (
+                {updatedIssues.results.slice(0, 2).map((issue) => (
                   <IssueShort key={issue.id} issue={issue} mobile />
                 ))}
               </div>
