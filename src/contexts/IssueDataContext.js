@@ -24,7 +24,7 @@ export const IssueDataProvider = ({ children }) => {
         const { data } = await axiosRes.post("/followers/", {
         issue_following: clickedIssue.id,
       });
-      
+
       setIssueData((prevState) => ({
         ...prevState,
         pageIssue: {

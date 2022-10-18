@@ -73,7 +73,7 @@ const Issue = (props) => {
               !is_owner &&
               (following_id ? (
                 <Button
-                  className={`${btnStyles.Button} ${btnStyles.Green}`}
+                  className={`${btnStyles.Button} ${btnStyles.Lightgreen}`}
                   onClick={() => handleUnfollow(issue)}>
                   Unfollow
                 </Button>

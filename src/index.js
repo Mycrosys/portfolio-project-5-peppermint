@@ -10,17 +10,15 @@ import { IssueDataProvider } from './contexts/IssueDataContext';
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <CurrentUserProvider>
-        <ProfileDataProvider>
-          <IssueDataProvider>
-            <App />
-          </IssueDataProvider>
-        </ProfileDataProvider>
-      </CurrentUserProvider>
-    </Router>
-  </React.StrictMode>,
+  <Router>
+    <CurrentUserProvider>
+      <ProfileDataProvider>
+        <IssueDataProvider>
+          <App />
+        </IssueDataProvider>
+      </ProfileDataProvider>
+    </CurrentUserProvider>
+  </Router>,
   document.getElementById('root')
 );
 

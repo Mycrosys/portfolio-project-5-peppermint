@@ -40,3 +40,12 @@
   color: #00a652;
 }
 
+.Lightgreen {
+  background-color: #c5dbc2;
+  color: #00a652;
+}
+  
+.Lightgreen:hover {
+  background-color: #00a652;
+  color: #c5dbc2;
+}
