@@ -30,7 +30,7 @@ function IssuePage() {
         setIssue({ results: [issue] });
         setJournals(journal);
       } catch (err) {
-        console.log(err);
+        
       }
     };
 

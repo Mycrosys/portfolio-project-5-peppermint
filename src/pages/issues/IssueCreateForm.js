@@ -85,7 +85,7 @@ function IssueCreateForm() {
       const { data } = await axiosReq.post("/issues/", formData);
       history.push(`/issues/${data.id}`);
     } catch (err) {
-      console.log(err);
+      
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

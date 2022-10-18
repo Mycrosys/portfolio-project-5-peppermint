@@ -41,7 +41,7 @@ export const IssueDataProvider = ({ children }) => {
         },
       }));
     } catch (err) {
-      console.log(err);
+      
     }
   };
 
@@ -64,7 +64,7 @@ export const IssueDataProvider = ({ children }) => {
         },
       }));
     } catch (err) {
-      console.log(err);
+      
     }
   };
 
@@ -77,7 +77,7 @@ export const IssueDataProvider = ({ children }) => {
           updatedIssues: data,
         }));
       } catch (err) {
-        console.log(err);
+        
       }
     };
 

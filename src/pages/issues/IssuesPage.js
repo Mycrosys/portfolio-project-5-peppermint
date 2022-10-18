@@ -36,7 +36,7 @@ function IssuesPage({ message, filter = "" }) {
         setIssues(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        
       }
     };
 
