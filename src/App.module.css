@@ -17,7 +17,7 @@ Resolution. */
   background-color: #ffffff;
   padding: 10px;
   border-radius: 2px;
-  border: 3px solid #00a652;
+  border: 3px solid #008542;
 }
 
 /* Make Image fit and not overflow */
@@ -30,7 +30,7 @@ Resolution. */
 /* Input Fields */
 .Input {
   background: #ffffff;
-  border: 2px solid #00a652;
+  border: 2px solid #008542;
   box-sizing: border-box;
   border-radius: 50px;
   font-size: 1.2rem;
@@ -40,7 +40,7 @@ Resolution. */
 }
   
 .Input:focus {
-  border-color: #00a652;
+  border-color: #008542;
   outline: none;
   box-shadow: none;
 }
@@ -51,17 +51,17 @@ Resolution. */
 
 /* Links */
 a {
-  color: #bec9c9;
+  color: #677979;
   transition: color ease-in-out 0.3s;
 }
   
 a:hover {
-  color: #00a652;
+  color: #008542;
   text-decoration: none;
 }
   
 a:hover i {
-  color: #00a652;
+  color: #008542;
   transition: color ease-in-out 0.3s;
 }
 
@@ -80,7 +80,7 @@ i {
 i:hover {
   cursor: pointer;
   transition: color ease-in-out 0.3s;
-  color: #00a652;
+  color: #008542;
 }
 
 figure {
@@ -99,5 +99,5 @@ figure {
   background: #999;
 }
 *::-webkit-scrollbar-thumb:hover {
-  background: #00a652;
+  background: #008542;
 }

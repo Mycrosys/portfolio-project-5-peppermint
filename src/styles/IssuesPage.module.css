@@ -2,10 +2,10 @@
 
 .SearchBar input {
   border-radius: 20px;
-  color: #00a652;
+  color: #008542;
   padding-left: 40px;
   margin-bottom: 16px;
-  border: 3px solid #00a652;
+  border: 3px solid #008542;
 }
 
 .SearchIcon {
@@ -17,11 +17,11 @@
   
 .SearchIcon:hover {
   cursor: default;
-  color: #00a652;
+  color: #008542;
 }
 
 .SearchBar input:focus {
-    border-color: #00a652;
+    border-color: #008542;
     outline: none;
     box-shadow: none;
   }

@@ -9,20 +9,20 @@
 }
 
 .Button:hover {
-  border: 2px solid #00a652;
+  border: 2px solid #008542;
   padding: 4px 10px;
 }
   
 .Button:hover:active {
-  background-color: #00a652 !important;
+  background-color: #008542 !important;
 }
   
 .Button:active {
-  background-color: #00a652 !important;
+  background-color: #008542 !important;
 }
   
 .Button:focus {
-  background-color: #00a652;
+  background-color: #008542;
 }
 
 /* Wide Button mainly used for sign up / sign in */
@@ -33,22 +33,23 @@
 
 /* Generic Green Button used throughout the Page */
 .Green {
-  background-color: #00a652;
+  background-color: #008542;
   color: #ffffff;
 }
   
 .Green:hover {
   background-color: #ffffff;
-  color: #00a652;
+  color: #008542;
 }
 
 /* Light Green Button used for Unfollow */
 .Lightgreen {
-  background-color: #c5dbc2;
-  color: #00a652;
+  background-color: #ffffff;
+  color: #008542;
+  border: 2px solid #008542;
 }
   
 .Lightgreen:hover {
-  background-color: #00a652;
-  color: #c5dbc2;
+  background-color: #008542;
+  color: #ffffff;
 }

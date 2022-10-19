@@ -44,7 +44,7 @@ function IssuesPage({ message, filter = "" }) {
     setHasLoaded(false);
     const timer = setTimeout(() => {
       fetchIssues();
-    }, 1000);
+    }, 2500);
 
     return () => {
       clearTimeout(timer);
@@ -66,7 +66,7 @@ function IssuesPage({ message, filter = "" }) {
             onChange={(event) => setQuery(event.target.value)}
             type="text"
             className="mr-sm-2"
-            placeholder="Search issues"
+            placeholder="Search issues (title and username only)"
           />
         </Form>
 
