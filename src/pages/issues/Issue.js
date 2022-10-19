@@ -32,7 +32,6 @@ const Issue = (props) => {
     state,
     issuePage,
     overdue,
-    updated_at,
     following_id,
     created_at,
   } = issue;
