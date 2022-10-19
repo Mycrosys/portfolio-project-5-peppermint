@@ -75,7 +75,7 @@ export const IssueDataProvider = ({ children }) => {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get("/issues/");
+        const { data } = await axiosReq.get("/issues/?ordering=-updated_at");
         setIssueData((prevState) => ({
           ...prevState,
           updatedIssues: data,

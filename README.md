@@ -50,25 +50,26 @@ Contrary to my other Projects, this website is meant as an Intranet application,
         4. Expandability: React is highly modular and can be easily expanded. If there is any need for more Features in the Future, they can be implemented without affecting the other components of the application. This also creates a situation where Teams working on the Frontend can be split further, each working on different components.
  
     -   #### Scope Plane
-        1. The Site covers Authentication and CRUD around the Events as well as flagging an event for attendance.
-        2. Actions done by the User like logging in or out will trigger Feedback Messages.
-        3. The same is true for creating, deleting, modifying, and joining/leaving an Event.
-        4. The Page 'My Events' is there to keep track of Events created by the User and Events he has joined so far as well as having easy access to deleting or modifying them.
-        5. 'Browse Event' is there to show created Events and filter them by category, if they are online/offline, and/or if the Title, Summary, or Location contains a certain text the User defines.
+        1. The Site covers Authentication and CRUD around the Issues.
+        2. Being logged in immediately is visible with the Username and a Profile Picture being displayed in the NavBar.
+        3. The Page 'My Issues' is there to keep track of Issues created by the User as well as have easy access to deleting or modifying them.
+        4. The Page 'Followed' is there to keep track of Issues being followed by the User.
+        5. The Searchbar is there to easily filter Issues on the Home, My Issues, and Followed Pages.
+        6. Recently Updated Issues are shown in a Sidebar to easily access hot Issues.
 
     -   #### Structure Plane
-        1. The Structure of the Site is simple and mostly linear. Progressing is mostly done with just the click of a Button unless form Inputs are required. The site visitor can always click on the navbar Elements to quickly find or create events. Only when watching event details or modifying an event, an additional step is needed.
-        2. There is a clear indication on the Navbar when you are on one of it mentioned Pages. The only exceptions are 'detail' and 'modify' event pages because these require a specific event ID. However, these are straightforward and the site visitor can return to the normal navigation simply by clicking on one of the navbar elements.
+        1. The Structure of the Site is simple and mostly linear. Progressing is mostly done with just the click of a Button unless form Inputs are required. The site visitor can always click on the navbar Elements to quickly find or create Issues when logged in.
+        2. There is a clear indication on the Navbar when you are on one of it mentioned Pages. The only exceptions are 'detail' and 'edit' Issue/Profile pages because these require a specific ID. However, these are straightforward and the site visitor can return to the normal navigation simply by clicking on one of the navbar elements.
     
     -   #### Skeleton Plane
         1. The [Wireframes](#wireframes) can be found further down in this Document.
-        2. The Home Page is presented with a carousel, alternating images, and some basic information that gets the visitor interested. Further down more images with more pieces of information are implemented, finishing with a small list of upcoming events and a signup Button (only visible if the Site visitor is not already logged in). The Home Page is also the only site that contains images, while the other sites focus on Information display only.
-        3. Events are implemented as Cards throughout the whole page, being introduced on the Home Page and then followed up in My Events and Browse.
-        4. Forms are used for creating and modifying events as well as Filtering them in the Browse section on the Page. Crispy forms are used to make them fit with the Design of the Site.
+        2. The Home Page is presented with a list of Issues, sorted by creation date.
+        3. Issues are implemented as Cards throughout the whole page, being introduced on the Home Page and then followed up in My Issues and Followed.
+        4. Forms are used for creating and modifying Issues, Login and Register, as well as editing the User Profile.
         5. On mobile devices, the amount of content displayed next to each other changes to give users the chance to use the page with 100% functionality on these devices as well. The content is then ordered in a way he would normally consume the content on a Desktop Browser as well, to not cause confusion and keep it well structured. This is achieved by using Bootstrap 5.
 
     -   #### Surface Plane
-        1. Fontawesome was used for the navbar, footer links, and event cards to display if you are the creator of that event or have joined it. Comparable Icons are used on other sites so this should feel familiar to the visitor.
+        1. Fontawesome was used for the navbar and Dropdownmenues Anchor (Pen Symbol). Comparable Icons are used on other sites so this should feel familiar to the visitor.
         2. Further details like Font/Color choice, etc. can be found in the next separate Section: [Design](#design).
 
 <br>
@@ -76,53 +77,51 @@ Contrary to my other Projects, this website is meant as an Intranet application,
 *   ### <a name="design">Design</a>
   
     -   #### Colour Scheme
-        -   I choose a blueish color palette with a flashy red for highlighting links that are not buttons. The Palette can be found [here](https://coolors.co/9f141f-f1faee-a8dadc-457b9d-1d3557). The Font Color used is a Prussian Blue (#1D3557) while the background is not a clean white, but a variation of it called Honeydew (#F1FAEE). For the navbar, Powder Blue was my choice (#A8DADC) so that the contrast to both the Font Color as well as the Link Highlight in Ruby Red (#9F141F) meets WCAG compliance. The Footer swaps the colors around, taking the Site's Font color as its background and the Background color as its font color.
-        -   To round up the color usage, the remaining blue color of the palette is Celadon Blue (#457B9D), which is between the Prussian Blue of the font and the Powder Blue of the navbar, and is used for the buttons on the website, the only exception being the reset button on the webform for creating an event to have some visual distinction there.
+        -   I choose a greenish color palette to match the leaf and keep the theme of "Peppermint". The Palette can be found [here](https://coolors.co/ffffff-008542-c5dbc2-cc2222-bec9c9-677979-000000).
+        -   The Font Color used is Black (#000000) on White (#FFFFFF), for maximum readability.
+        -   For the navbar, Icons are shown in Silver Sand (#BEC9C9) to better show the contrast of the highlight Spanish Green (#008542).
+        -   To keep WCAG compliancy, all links are shown in Nickel(#677979), except for the Register and Login links on their respective Pages. These are shown in Lava (#CC2222), to highlight them as options if players went to the login page but want to register or vice versa. The same color is also used for highlighting Overdue Issues.
+        -   The Background below the Navbar is painted in the final color, Cambridge Blue (#C5DBC2), which is a light shade of green.
     
     <br>
     <h2><img src="./docs/images/palette.jpg" alt="A Picture of the color Palette used on the website"></h2><br>
 
     -   #### Typography
-        -   The Aleo font is used as the main font for the whole website with a serif as a backup font in case the font doesn't import correctly. It is also displayed in italic and bold, which makes it easy to read on all devices.
-        -   To complement this, Arimo is used as the main header font. Its main purpose is to support the site's theme. The backup font is sans-serif.
+        -   The Oswald font is used as the main font for the whole website with a sans-serif as a backup font in case the font doesn't import correctly.
+        -   To complement this, Merriweather is used as the header/title font in most components. Its main purpose is to support the site's theme. The backup font is sans-serif as well.
   
     -   #### Imagery
-        -   Only the Home Page contains any imagery. There is a big carousel showing multiple people taking part in events to associate the Site with the end goal of having fun together with other people. Further down the Homepage, we see 3 more images that show people creating and sharing an event, as well as one picture of a big event taking part at night with lots of lighting.
-        
+        -   A green leaf (representing a Peppermint Leaf) is shown on the top left of the NavBar. It is also used as a Favicon for the Page.
+        -   Every Issue requires a screenshot/image for creation. These are resized to fit into the Issue Card.
+        -   Users have the option to include a profile Picture which is then displayed as a circle on both their Profile Page and in the NavBar.
+
   
 <br>
 
 *   ### <a name="userstories">User stories</a>
 
-    -   #### Site User
-
-        1. As a Site User, I can register an account so that I can create/join and view details of events.
-        2. As a registered Site User, I can log in and log out so that I can use the main features of the Site while seeing my logged-in Username.
-        3. As a registered Site User, I can create my events so that I can share them with other site users.
-        4. As a registered Site User, and Event Creator I can delete my existing events so that I can remove them from the website.
-        5. As a registered Site User, and Event Creator I can edit/modify my existing events so that I can update their information.
-        6. As a registered Site User, I can view and browse Events so that I can find out more information about them.
-        7. As a registered Site User, I can join events so that I can show that I will attend these.
-        8. As a registered Site User, I can leave events I have joined before so that I can show that I will no longer attend said event.
-        9. As a registered Site User, I can search for events so that I can find events I want to join.
-        10. As a registered Site User, I can quickly and easily distinguish Events I have created or joined in a list so that I can more easily find new events I am not involved with yet.
-        11. As a registered Site user, I can see Feedback Messages about my Actions so that I receive a visual confirmation, that my action was successful.
-
-    -   #### Site Admin
-
-        1. As a Site Admin, I can create, read, update and delete events and their attendees so that I can manage the event site's content.
+    1. As a Site User, I can register an account so that I can create/join and view details of events.
+    2. As a registered Site User, I can log in and log out so that I can use the main features of the Site while seeing my logged-in Username.
+    3. As a registered Site User, I can create my events so that I can share them with other site users.
+    4. As a registered Site User, and Event Creator I can delete my existing events so that I can remove them from the website.
+    5. As a registered Site User, and Event Creator I can edit/modify my existing events so that I can update their information.
+    6. As a registered Site User, I can view and browse Events so that I can find out more information about them.
+    7. As a registered Site User, I can join events so that I can show that I will attend these.
+    8. As a registered Site User, I can leave events I have joined before so that I can show that I will no longer attend said event.
+    9. As a registered Site User, I can search for events so that I can find events I want to join.
+    10. As a registered Site User, I can quickly and easily distinguish Events I have created or joined in a list so that I can more easily find new events I am not involved with yet.
+    11. As a registered Site user, I can see Feedback Messages about my Actions so that I receive a visual confirmation, that my action was successful.
 
 <br>
 
 *   ### <a name="agile">Agile Methodology</a>
 
     - The Development of this project was managed using GitHub Projects.
-        1. [The Project](https://github.com/Mycrosys/portfolio-project-4-tomodachi/projects/1)
-        2. [Epics](https://github.com/Mycrosys/portfolio-project-4-tomodachi/issues?q=label%3Aepic)
-        3. [User Stories](https://github.com/Mycrosys/portfolio-project-4-tomodachi/issues?q=label%3Auser-story)
-        4. [Tasks](https://github.com/Mycrosys/portfolio-project-4-tomodachi/issues?q=label%3Atask)
-    - Each Epic has the related User Stories written in its description. Likewise, User Stories have their related Tasks written in their comments.
-    - The Backlog Tab in the Project contains Features that may be implemented in a future iteration of the development cycle. More about them can be found in the section [Future Features](#future) in this readme.
+        1. [The Project](https://github.com/users/Mycrosys/projects/2/views/1?layout=board)
+        2. Epics: NAVIGATION, AUTHENTICATION, ISSUES, PROFILES
+        3. User Stories: Please see above for [User Stories](#userstories).
+    - Each Epic has the related User Stories written in its description. User Stories have their acceptance criteria written in their description.
+    - For Epics to be marked as "done", each (non-optional) User Story needs to be finished as well.
 
 <br>
 
@@ -157,19 +156,12 @@ Contrary to my other Projects, this website is meant as an Intranet application,
 
 <h2><img src="./docs/images/database_model.jpg" alt="A Picture of the Database Model used in the Project"></h2><br>
 
-- I decided on a simple Model for my first project to get it started. Allauth handles all Authentication Issues while my Event Model contains all relevant information about an event.
-
-- Title, Summary, and Location_Area are Charfield/Textfields and are the most important Fields for a User to describe their Event. The Title will be visible on all cards throughout the Webpage, while the Summary and Location_Area can only be viewed on the Details Page. The summary contains the main event Description while Location_Area contains the meetup place, which can either be a physical address, or a link to another website, video service, or tool used.
-
-- Location_Online tracks if the Event is an Offline Event (False), with people having to physically attend said event, or an Online Event (True), in which case people meet up on websites, voice, or video services, and the like. This is also only shown on the Detail Page, however, people can filter these Events on the Browse Page if they are looking specifically for one or the other.
-
-- Created_On, Modified_On, and Location_Time are DateTimeFields. While Created on automatically tracks the creation time of the event, Modified_On tracks the time of the last modification. Both of them are only visible on the Details Page. Location_Time however is visible in all cards, because it tracks the time the event is taking place and is the most important information out of the three in most cases.
-
-- Category tracks the category of the Event. There are currently 5 Possible categories: DIN (Dining), CIN (Cinema), GAM (Gaming), SPO (Sports), and CAM (Camping). For this first version of the Page, these categories are Hardcoded and limited to five, however, this is a place to further improve on the project, having a separate category model that lets the admin add new categories on the fly in another iteration of the Development cycle. The category is a piece of very important information for a Site User and every Card immediately shows its Category with a color Coded Background at the top of it.
-
-- Author and Attendees track the Creator of the Event as well as the people that have joined it, confirming their attendance. The Author is shown on the Details Page, while the number of attendees is shown on every card, to see how popular a said event is. The Usernames of the people that joined are not shown anywhere on the normal page. Only the Admin will have access to this information on the admin panel due to possible privacy concerns. We don't want people to be stalked, so I limited the display for the moment. A future iteration may introduce both the display of users to the event creator, as well as granting the event creator the right to remove Attendees from their event.
-
-- An earlier version used a slug, created from the title, but that was proven as being not effective because titles are probably being reused a lot in this scenario. Instead, the Event ID is now being used to link up pages.
+- Dj-rest-auth handles all Authentication Issues (User Model).
+- The Issue Model contains all relevant information about an issue.
+- Journals are used to store the history of an Issue. They contain which fields were changed and when.
+- Profile holds expanded User Information like the Bio and Profile Picture.
+- Following is used to keep track of which User is following which Issue.
+- The implementation is done via an API. More Information and Details of the Models can be found in the README.MD of that Project: [QA API](https://github.com/Mycrosys/qa-api).
 
 <br><br>
 
