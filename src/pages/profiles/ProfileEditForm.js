@@ -96,7 +96,6 @@ const ProfileEditForm = () => {
         <Form.Label>Bio</Form.Label>
         
         <Form.Control
-          className={appStyles.Input}
           as="textarea"
           value={description}
           onChange={handleChange}

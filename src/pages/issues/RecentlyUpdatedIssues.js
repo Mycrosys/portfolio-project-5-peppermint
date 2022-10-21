@@ -28,7 +28,7 @@ const RecentlyUpdatedIssues = ({mobile}) => {
                 ))}
               </div>
             ) : (
-              updatedIssues.results.map((issue) => (
+              updatedIssues.results.slice(0, 10).map((issue) => (
                 <IssueShort key={issue.id} issue={issue} />
               ))  
             )}
