@@ -135,7 +135,7 @@ Contrary to my other Projects, this website is meant as an Intranet application,
 
     - The Development of this project was managed using GitHub Projects.
         1. [The Project](https://github.com/users/Mycrosys/projects/2/views/1?layout=board)
-        2. Epics: NAVIGATION, AUTHENTICATION, ISSUES, PROFILES
+        2. Epics: [NAVIGATION](https://github.com/Mycrosys/portfolio-project-5-peppermint/issues/2), [AUTHENTICATION](https://github.com/Mycrosys/portfolio-project-5-peppermint/issues/1), [ISSUES](https://github.com/Mycrosys/portfolio-project-5-peppermint/issues/3), [PROFILES](https://github.com/Mycrosys/portfolio-project-5-peppermint/issues/5)
         3. User Stories: Please see above for [User Stories](#userstories).
     - Each Epic has the related User Stories written in its description. User Stories have their acceptance criteria written in their description.
     - For Epics to be marked as "done", each (non-optional) User Story needs to be finished as well.
@@ -253,7 +253,7 @@ Contrary to my other Projects, this website is meant as an Intranet application,
 1. [GitHub:](https://github.com/)
     - GitHub is used to store the project's code after being pushed from Git.
 1. [Google Fonts:](https://fonts.google.com/)
-    - Google fonts were used to import the 'Aleo' and 'Arimo' fonts into the style.css file.
+    - Google fonts were used to import the 'Oswald' and 'Merriweather' fonts into the style.css file.
 1. [Font Awesome:](https://fontawesome.com/)
     - Font Awesome was used to add icons for aesthetic and UX purposes.
 1. [Bootstrap](https://getbootstrap.com/)
