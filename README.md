@@ -206,7 +206,7 @@ Contrary to my other Projects, this website is meant as an Intranet application,
 
 ###   Recently Updated Issues
 
-- A Sidebar on the Website provides a quick overview of recently created and updated Issues. This way, Users can stay up to date with Issues that are regularly updated and new Issues appearing that may be relevant to what they are working on. Both the number of modifications (journals) and the time of the last update are shown here. They can also follow/unfollow these Issues with a quick click of a Button.
+- A Sidebar on the Website provides a quick overview of recently created and updated Issues. This way, Users can stay up to date with Issues that are regularly updated and new Issues appearing that may be relevant to what they are working on. Both the number of modifications (journals) and the time of the last update are shown here. They can also follow/unfollow these Issues with a quick click of a Button. A total of 10 Issues can be displayed in the Sidebar on Desktop Resolution Devices, while only 2 are displayed on mobile Screens without the follow/unfollow buttons. Nevertheless, mobile Users can click the Issues to open them and follow them with a click on the follow/unfollow button of the issue.
 
 <h2><img src="./docs/images/recently_updated_issues.jpg" alt="A Picture showing the Recently Updated Issues Sidenav"></h2><br>
 
@@ -437,6 +437,8 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 - The [Cloud Upload Icon](http://simpleicon.com/cloud-upload-2.html) is a by me modified version of a picture found on [Simple Icon](http://simpleicon.com/).
 
 - The Sites Favicon next to the Websites Name in the Tab was created by me with the use of the above-mentioned Leaf Logo and Gimp.
+
+- Images used in the bug reports come from [Lorem Picsum](https://picsum.photos/).
 
 ### Code
 
