@@ -308,6 +308,16 @@ Contrary to my other Projects, this website is meant as an Intranet application,
     - Apple Ipad (5th generation)
     <br><br>
     Both the Pixel 6 and Apple Ipad displayed the site perfectly in normal and Landscape mode on Google Chrome. In addition, the Website was viewed on PC on Google Chrome, Mozilla Firefox, Opera Brave, and Microsoft Edge. The site looked and worked great on all Devices and all Browsers Used.
+<br><br>
+
+### ReactJS Code testing
+
+1. Every Component was checked in the Workspace Tab "Problems" to not have any warnings or error messages.
+<h2><img src="./docs/images/no_problems_workspace.jpg" alt="A Picture of the Problem tab in the Gitpod workspace"></h2>
+
+2. Eslint has been used to check all files on top of that. It can be run with "npm run lint". The test returned no error messages.
+<h2><img src="./docs/images/no_problems_lint.jpg" alt="A Picture of the lint check in the Gitpod workspace"></h2>
+
 <br>
 
 ### Google Lighthouse Testing
@@ -334,7 +344,7 @@ Contrary to my other Projects, this website is meant as an Intranet application,
     - Do logged-out Users have a login and register link?
     
 2. The Tests are run by typing "npm test" in the Terminal.
-3. Results: <h2><img src="./docs/images/automatic_tests_results.jpg" alt="Picture of the Results of automatic Tests in React"></h2>
+3. Results: <h2><img src="./docs/images/automatic_tests_results_react.jpg" alt="Picture of the Results of automatic Tests in React"></h2>
 
 
 <br>
