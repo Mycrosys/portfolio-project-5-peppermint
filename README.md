@@ -354,6 +354,8 @@ Contrary to my other Projects, this website is meant as an Intranet application,
 - Creating a new Issue or modifying one, does not Update the list of Recently Updated Issues until a manual reload is done. These 2 Issues were Troubleshot for many hours (~10h and an additional 5 with Tutor Support), without them being resolved. In the end, the Code was rolled back to a state that does not create Errors when Browsing the Site normally.
 - Editing an Issue will create a deprecation warning from moment.js. This is just a warning of a third-party Library, but in Case the Due Date is no longer prefilled due to this, another solution needs to be found.
   <h2><img src="./docs/images/warning_momentjs.jpg" alt="Picture of the warning of moment.js"></h2>
+- In a previous version, journal entries would be created even if there was no change in any of the Fields. This has been fixed and journal entries are now only created when one of the fields received a different value than it had before. Saving an Issue, even without any change, will still update the 'updated_at' though and potentially put it into the list of recently updated issues.
+  <h2><img src="./docs/images/empty_journal.jpg" alt="Picture of an empty journal entry.js"></h2>
 <br><br>
 
 ## ([^](#tableofcontents)) <a name="future">Future Features</a>
